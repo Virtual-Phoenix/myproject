@@ -10,8 +10,13 @@ import java.util.List;
 @Service
 public class CustomerServiceImp implements CustomerService {
 
+
+    private final CustomerDAO customerDAO;
+
     @Autowired
-    private CustomerDAO customerDAO;
+    public CustomerServiceImp(CustomerDAO customerDAO) {
+        this.customerDAO = customerDAO;
+    }
 
     @Override
     public List<Customer> getAllCustomer() {
