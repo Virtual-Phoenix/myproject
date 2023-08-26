@@ -14,8 +14,12 @@ import java.util.List;
 @Repository
 public class CustomerDAOImpl implements CustomerDAO {
 
+    private final EntityManager entityManager;
+
     @Autowired
-    private EntityManager entityManager;
+    public CustomerDAOImpl(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
 
     @Override
@@ -26,7 +30,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 
         List<Customer> allCustomers = query.getResultList();
 
-        return  allCustomers;
+        return allCustomers;
 
     }
 
@@ -48,8 +52,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     @Override
     public void deleteCustomer(int id) {
         Session session = entityManager.unwrap(Session.class);
-        Query<Customer> query = session.createQuery("delete from Customer "+
-                "where id =:customerId");
+        Query<Customer> query = session.createQuery("delete from Customer " + "where id =:customerId");
         query.setParameter("customerId", id);
         query.executeUpdate();
 

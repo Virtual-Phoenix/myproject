@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface CustomerService {
 
-    public List<Customer> getAllCustomer();
+    List<Customer> getAllCustomer();
 
-    public void saveCustomer(Customer employee);
+    void saveCustomer(Customer employee);
 
-    public Customer getCustomer(int id);
+    Customer getCustomer(int id);
 
-    public void deleteCustomer(int id);
+    void deleteCustomer(int id);
 
 
 }
