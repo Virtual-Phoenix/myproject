@@ -25,6 +25,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     @Override
     public List<Customer> getAllCustomers() {
         Session session = entityManager.unwrap(Session.class);
+        z
 
         Query<Customer> query = session.createQuery("from Customer", Customer.class);
 
